@@ -201,6 +201,8 @@ class TransferBalance(LoginRequiredMixin, View):
                     current_user.save()
                     to_user.save()
                     messages.success(self.request, 'Success!')
+                    send_transaction_email(self.request.user, amount, 'Transfered Balance', 'transfer_balance_email.html')
+                    send_transaction_email(to_user.user, amount, 'Received Balance', 'receive_balance_email.html')
                 else:
                     messages.error(self.request, 'Insufficient balance!')
             except UserBankAccount.DoesNotExist:
@@ -210,12 +212,12 @@ class TransferBalance(LoginRequiredMixin, View):
                 account = current_user,
                 amount = amount,
                 balance_after_transaction = current_user.balance,
-                transaction_type = TRANSFER
+                transaction_type = TRANSFER,
             )
             Transaction.objects.create(
                 account = to_user,
                 amount = amount,
                 balance_after_transaction = current_user.balance,
-                transaction_type = RECEIVED
+                transaction_type = RECEIVED,
             )
         return redirect('transfer')
