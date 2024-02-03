@@ -12,7 +12,7 @@ from datetime import datetime
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
 
