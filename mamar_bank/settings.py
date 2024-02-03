@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import dj_database_url
+
 from pathlib import Path
+import dj_database_url
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -34,8 +35,6 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://mamar-bank-6d4z.onrender.com','https://*.127.0.0.1']
-
 
 # Application definition
 
@@ -110,7 +109,6 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
         default='postgres://mamarbank_0pof_user:wLoTqoQ0i4WLArBUDfj6b2DvChAruk3f@dpg-cmv0cduv3ddc73bpibjg-a.oregon-postgres.render.com/mamarbank_0pof',
     )
 }
