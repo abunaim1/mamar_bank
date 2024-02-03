@@ -112,7 +112,6 @@ DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
         default='postgres://mamarbank_0pof_user:wLoTqoQ0i4WLArBUDfj6b2DvChAruk3f@dpg-cmv0cduv3ddc73bpibjg-a.oregon-postgres.render.com/mamarbank_0pof',
-        conn_max_age=600
     )
 }
 
