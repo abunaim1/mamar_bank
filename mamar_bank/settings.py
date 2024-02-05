@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+
+#for env file
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -51,12 +53,8 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'transiction',
-    "crispy_forms",
-    "crispy_bootstrap5",
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
