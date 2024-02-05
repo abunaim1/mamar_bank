@@ -90,8 +90,7 @@ class WithdrawMoneyView(TransactionCreateMixin):
                 update_fields = ['balance']
             )
             messages.success(self.request, f'{amount}$ withdrawn successfully')
-        
-        send_transaction_email(self.request.user, amount, 'Withdrawal message', 'withdraw_email.html')
+            send_transaction_email(self.request.user, amount, 'Withdrawal message', 'withdraw_email.html')
 
         return super().form_valid(form)
     
